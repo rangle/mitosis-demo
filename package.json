@@ -1,12 +1,29 @@
 {
   "name": "mitosis-example",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "mitosis-cli": "@builder.io/mitosis-cli",
+    "compile:react": "mitosis compile --to=react ./src/components/component.lite.jsx > component.jsx",
+    "build": "mitosis build",
+    "lint": "eslint"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "exports": {
+    "./react/*": "./dist/react/src/*",
+    "./qwik/*": "./dist/qwik/src/*",
+    "./vue/*": "./dist/vue/src/*",
+    "./svelte/*": "./dist/svelte/src/*",
+    "./angular/*": "./dist/angular/src/*",
+    "./html/*": "./dist/html/src/*",
+    "./solid/*": "./dist/solid/src/*"
+  },
+  "dependencies": {
+    "@builder.io/mitosis": "^0.0.55",
+    "@builder.io/mitosis-cli": "^0.0.16",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7",
+    "eslint": "^8.20.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4"
+  }
 }
