@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "scripts": {
     "mitosis-cli": "@builder.io/mitosis-cli",
-    "compile:react": "mitosis compile --to=react ./src/components/component.lite.jsx > component.jsx",
+    "compile:react": "mitosis compile --to=react ./src/components/component.lite.tsx > component.jsx",
     "build": "mitosis build",
-    "lint": "eslint"
+    "lint": "eslint",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "exports": {
     "./react/*": "./dist/react/src/*",
@@ -17,13 +19,28 @@
     "./solid/*": "./dist/solid/src/*"
   },
   "dependencies": {
-    "@builder.io/mitosis": "^0.0.55",
-    "@builder.io/mitosis-cli": "^0.0.16",
+    "@builder.io/mitosis": "^0.0.56-31",
+    "@builder.io/mitosis-cli": "^0.0.17-29",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "@typescript-eslint/parser": "^5.30.7",
     "eslint": "^8.20.0",
     "eslint-plugin-unused-imports": "^2.0.0",
     "prettier": "^2.7.1",
     "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.9",
+    "@storybook/addon-actions": "^6.5.9",
+    "@storybook/addon-essentials": "^6.5.9",
+    "@storybook/addon-interactions": "^6.5.9",
+    "@storybook/addon-links": "^6.5.9",
+    "@storybook/builder-webpack4": "^6.5.9",
+    "@storybook/manager-webpack4": "^6.5.9",
+    "@storybook/react": "^6.5.9",
+    "@storybook/testing-library": "^0.0.13",
+    "babel-loader": "^8.2.5",
+    "eslint-plugin-storybook": "^0.6.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

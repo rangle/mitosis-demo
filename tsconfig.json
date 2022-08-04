@@ -2,9 +2,12 @@
   "compilerOptions": {
     "target": "ESNext",
     "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "jsx": "preserve",
     "moduleResolution": "node",
     "jsxImportSource": "@builder.io/mitosis"
   },
   "include": ["src"]
+  // "exclude": ["**/*.stories.tsx"]
 }

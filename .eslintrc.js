@@ -1,18 +1,18 @@
 module.exports = {
   env: {
-    browser: true,
+    browser: true
   },
   plugins: ["@builder.io/mitosis"],
   parser: "@typescript-eslint/parser",
-  extends: [],
+  extends: ["plugin:storybook/recommended"],
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: "module",
     ecmaFeatures: {
-      jsx: true,
-    },
+      jsx: true
+    }
   },
   rules: {
-    "@builder.io/mitosis/no-conditional-render": "warn",
-  },
+    "@builder.io/mitosis/no-conditional-render": "warn"
+  }
 };

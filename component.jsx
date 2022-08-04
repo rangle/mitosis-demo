@@ -1,35 +1,33 @@
-import { useState, Show, onMount } from "@builder.io/mitosis";
-
+import * as React from "react";
+import { useEffect } from "react";
+import { useLocalObservable } from "mobx-react-lite";
 export type Props = {
   initCount?: number;
   winCount?: number;
 };
-
 export type State = {
   count: number;
 };
 
 export default function Component(props: Props) {
-  // const initCount = props.initCount;
-  const state = useState<State>({ count: 0 });
+  const state = useLocalObservable(() => ({ count: 0 }));
 
-  onMount(() => {
+  useEffect(() => {
     if (props.initCount !== undefined) {
       state.count = props.initCount;
     }
-  });
+  }, []);
 
   return (
     <div>
-      {/* DISPLAY SOME JSX CONDITIONALLY */}
-      <Show when={state.count > (props.winCount ?? 10)}>
-        <h1>You Win!!!</h1>
-      </Show>
+      {state.count > (props.winCount ?? 10) ? (
+        <>
+          <h1>You Win!!!</h1>
+        </>
+      ) : null}
 
-      {/* DISPLAY THE COUNT */}
       <h1>{state.count}</h1>
 
-      {/* BUTTON TO ADD TO THE COUNT */}
       <button
         onClick={(event) => {
           state.count = state.count + 1;
@@ -48,3 +46,4 @@ export default function Component(props: Props) {
     </div>
   );
 }
+
