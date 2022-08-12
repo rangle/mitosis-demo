@@ -17,8 +17,7 @@ module.exports = {
   options: {
     react: {
       format: "lite",
-      // languages: ["ts"],
-      stylesType: "emotion",
+      stylesType: "styled-components",
       stateType: "useState",
       type: "dom",
       prettier: true,
